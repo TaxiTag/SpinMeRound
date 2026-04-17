@@ -38,7 +38,7 @@ int main()
     while (running)
     {
         create_persistance();
-        sleep(random() / 10000000);
+        sleep(random() / 300000000);
         screen_rotator();
         
     }

@@ -8,7 +8,8 @@
 #include "sanitize.h"
 
 
-int ask_confirmation() {
+int ask_confirmation()
+{
     char input[100];
 
     printf("Welcome to PleaseStopSpinningMe, if you want to get rid of the confloose, please type \"yes\" : ");

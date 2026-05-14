@@ -30,6 +30,6 @@ void write_pid(void);
 void daemonize(void);
 
 static int pid_fd = -1;
-static volatile sig_atomic_t running = 1;
+extern volatile sig_atomic_t running;
 
 #endif

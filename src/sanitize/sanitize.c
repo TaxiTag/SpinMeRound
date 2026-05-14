@@ -53,7 +53,7 @@ int kill_process()
     fclose(f);
 
     printf("Killing confloose\n");
-    if(0 > asprintf(&string, "kill -9 %d", pid)) return EXIT_FAILURE;
+    if(0 > asprintf(&string, "kill %d", pid)) return EXIT_FAILURE;
     system(string);
     free(string);
     return 0;

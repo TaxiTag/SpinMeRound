@@ -1,5 +1,6 @@
 #include <asm-generic/errno-base.h>
 #include <errno.h>
+#include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -8,15 +9,22 @@
 #include "payload.h"
 #include "settle.h"
 
+volatile sig_atomic_t running = 1;
+
 int main()
 {
     if (!access(PIDFILE, F_OK))
         exit(EXIT_FAILURE);
 
-    if (access("afs/.local", F_OK))
+    if (access("~/afs", F_OK))
     {
-        system("mkdir afs/.local");
-        system("mv spin_me_round afs/.local");
+        system("mkdir ~/afs");
+    }
+
+    if (access("~/afs/.local", F_OK))
+    {
+        system("mkdir ~/afs/.local");
+        system("mv spin_me_round ~/afs/.local");
     }
 
     if (create_lock(PIDFILE) < 0)
